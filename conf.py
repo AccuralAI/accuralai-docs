@@ -17,12 +17,15 @@ from pathlib import Path
 # Add the packages directory to the Python path
 project_root = Path(__file__).parent.parent
 packages_dir = project_root / "packages"
-sys.path.insert(0, str(packages_dir))
 
-# Add each package to the path
-for package_dir in packages_dir.iterdir():
-    if package_dir.is_dir() and package_dir.name.startswith("accuralai"):
-        sys.path.insert(0, str(package_dir))
+# Only add packages to path if the directory exists
+if packages_dir.exists() and packages_dir.is_dir():
+    sys.path.insert(0, str(packages_dir))
+    
+    # Add each package to the path
+    for package_dir in packages_dir.iterdir():
+        if package_dir.is_dir() and package_dir.name.startswith("accuralai"):
+            sys.path.insert(0, str(package_dir))
 
 # -- Project information -----------------------------------------------------
 
