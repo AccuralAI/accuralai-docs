@@ -10,22 +10,8 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-from pathlib import Path
-
-# Add the packages directory to the Python path
-project_root = Path(__file__).parent.parent
-packages_dir = project_root / "packages"
-
-# Only add packages to path if the directory exists
-if packages_dir.exists() and packages_dir.is_dir():
-    sys.path.insert(0, str(packages_dir))
-    
-    # Add each package to the path
-    for package_dir in packages_dir.iterdir():
-        if package_dir.is_dir() and package_dir.name.startswith("accuralai"):
-            sys.path.insert(0, str(package_dir))
+# Note: Packages are installed via pip on Read the Docs, so no manual path setup needed.
+# For local development with editable installs, the packages are already on sys.path.
 
 # -- Project information -----------------------------------------------------
 
