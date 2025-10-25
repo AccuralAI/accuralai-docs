@@ -20,5 +20,20 @@ sphinx:
 python:
   install:
   - requirements: requirements.txt
-  - path: .
+  - method: pip
+    path: packages/accuralai-core
+    extra_requirements:
+      - dev
+  - method: pip
+    path: packages/accuralai-cache
+  - method: pip
+    path: packages/accuralai-canonicalize
+  - method: pip
+    path: packages/accuralai-google
+  - method: pip
+    path: packages/accuralai-ollama
+  - method: pip
+    path: packages/accuralai-router
+  - method: pip
+    path: packages/accuralai-validator
         
